@@ -11,7 +11,7 @@
       state: present
     notify:
       - restart and enable apache2
-    when: ansible_distribution == 'Ubuntu'        
+    when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'       
   - name: install httpd
     yum:
       name: httpd
