@@ -1,0 +1,35 @@
+---
+- hosts: all
+  become: true
+  vars_files:
+    - vars/default.yml
+  tasks:
+  - name: install apache2 and update packages
+    apt:
+      name: apache2
+      update_cache: yes
+      state: present
+    notify:
+      - restart and enable apache2
+    when: iansible_distribution == 'Ubuntu'        
+  - name: install httpd
+    yum:
+      name: httpd
+      state: present
+      notify: 
+        - restart and enable httpd
+    when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+  - name: restart apache
+    service: 
+      name: apache2 
+      state: started 
+      enabled: yes
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: restart httpd
+    service: 
+      name: httpd 
+      state: started 
+      enabled: yes
+    when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' 
