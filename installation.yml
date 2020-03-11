@@ -15,7 +15,7 @@
   - name: install httpd
     yum:
       name: httpd
-      state: present
+      state: latest
       notify: 
         - restart and enable httpd
     when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
