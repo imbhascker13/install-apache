@@ -16,8 +16,8 @@
     yum:
       name: httpd
       state: latest
-      notify: 
-        - restart and enable httpd
+    notify: 
+      - restart and enable httpd
     when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
   - name: restart apache
