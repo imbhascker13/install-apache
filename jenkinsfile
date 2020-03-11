@@ -4,6 +4,6 @@ node {
    git 'https://github.com/AbhishekPattnaik04/ApacheInstallation.git'
   }
   stage('ansible deploy'){
-  sh label: 'ansible', script: ' ansible-playbook -i inventory playbook.yml -u abhishek '
+  sh label: 'ansible', script: ' ansible-playbook -i inventory installation.yml -u abhishek '
 }
 }
