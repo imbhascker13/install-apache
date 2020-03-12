@@ -10,7 +10,7 @@
       update_cache: yes
       state: present
     notify:
-      - restart and enable apache2
+      - restart and apache2
     when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'       
   - name: install httpd
     yum:
@@ -34,13 +34,4 @@
       enabled: yes
     when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' 
     
-  handlers:
-  - name: Reload Apache
-    service:
-      name: apache2
-      state: reloaded
-
-  - name: Restart Apache
-    service:
-      name: apache2
-      state: restarted
+ 
