@@ -1,9 +1,9 @@
 node {
 
   stage('Git-Checkout') {
-   git 'https://github.com/AbhishekPattnaik04/ApacheInstallation.git'
+   git 'https://github.com/imbhascker13/install-apache.git'
   }
   stage('ansible deploy'){
-  sh label: 'ansible', script: ' ansible-playbook -i inventory installation.yml -u Shyam '
+  sh label: 'ansible', script: ' ansible-playbook installation.yaml '
 }
 }
