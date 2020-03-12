@@ -35,12 +35,12 @@
     when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' 
     
   handlers:
-    - name: Reload Apache
+   - name: Reload Apache
       service:
         name: apache2
         state: reloaded
 
-    - name: Restart Apache
+   - name: Restart Apache
       service:
         name: apache2
         state: restarted
