@@ -4,6 +4,6 @@ node {
    git 'https://github.com/imbhascker13/install-apache.git'
   }
   stage('ansible deploy'){
-  sh label: 'ansible', script: ' sudo ansible-playbook installation.yaml '
+  sh label: 'ansible', script: 'ansible-playbook installation.yml'
 }
 }
