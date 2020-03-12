@@ -10,7 +10,7 @@
       update_cache: yes
       state: present
     notify:
-      - restart and apache2
+      - restart apache2
     when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'       
   - name: install httpd
     yum:
