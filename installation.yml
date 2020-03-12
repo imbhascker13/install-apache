@@ -9,15 +9,11 @@
       name: apache2
       update_cache: yes
       state: present
-    notify:
-      - restart apache2
     when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'       
   - name: install httpd
     yum:
       name: httpd
       state: latest
-    notify: 
-      - restart and enable httpd
     when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
   - name: restart apache
