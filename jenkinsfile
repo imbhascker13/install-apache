@@ -6,4 +6,7 @@ node {
   stage('ansible deploy'){
   sh label: 'ansible', script: 'ansible-playbook installation.yml'
 }
+ stage('Downstream Build -- Docker Deployment'){
+	 build 'install-passanger'
+	}
 }
